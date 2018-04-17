@@ -1,0 +1,10 @@
+header.header {
+  .header-text {
+    height: 125px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 25px;
+    font-weight: bold;
+    color: $grey-1;
+  }
+}

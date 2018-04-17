@@ -1,0 +1,28 @@
+body,
+h1,
+p,
+hr,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+button {
+  border: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none !important;
+}

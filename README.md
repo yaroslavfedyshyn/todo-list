@@ -1,8 +1,8 @@
 # todo list
 
-# To start type:
+## To start type:
 
-# npm i
-# npm start
+### npm i
+### npm start
 
-# then go to: localhost:4000
+### then go to: localhost:4000
