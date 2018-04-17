@@ -1,6 +1,6 @@
 # todo list
 
-## To start type:
+## To start - type:
 
 ### npm i
 ### npm start
