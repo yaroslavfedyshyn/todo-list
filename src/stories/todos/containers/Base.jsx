@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import CreateTodoContainer from './Create';
 
 @connect(
     (state) => ({
@@ -18,6 +19,12 @@ export default class Base extends Component {
     render() {
         return (
             <div className="container-fluid">
+                <div className="row">
+                    <div className="new-todo">
+                        <p className="new-todo-title">Create new task:</p>
+                        <CreateTodoContainer />
+                    </div>
+                </div>
                 <div className="row">
 
                 </div>

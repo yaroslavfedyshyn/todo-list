@@ -8,18 +8,6 @@ export default class TextEditor extends Component {
         this.state = {};
     }
 
-    calculateHeightDependsOnContent(event) {
-        const { target } = event;
-        let height = target.scrollHeight;
-
-        if (height < 300) {
-            height = 300;
-        }
-
-        target.style.height = '1px';
-        target.style.height = `${height}px`;
-    }
-
     render() {
         const {
             input,
@@ -27,21 +15,20 @@ export default class TextEditor extends Component {
                 touched,
                 error,
             },
+            placeholder = '',
         } = this.props;
+        const showError = touched && error;
 
         return (
-            <div>
+            <div className="form-group">
+                <label htmlFor={input.name}>{placeholder}</label>
                 <textarea
                     {...input}
-                    ref={node => { this.textareaElement = node; }}
-                    onMouseOver={this.calculateHeightDependsOnContent}
-                    onChange={event => {
-                        this.calculateHeightDependsOnContent(event);
-
-                        input.onChange(event.target.value);
-                    }}
+                    className="form-control"
+                    id={input.name}
+                    rows="3"
                 >{input.value}</textarea>
-                {touched && error && <span className="error-text">{error}</span>}
+                {showError && <span className="text-danger">{error}</span>}
             </div>
         );
     }

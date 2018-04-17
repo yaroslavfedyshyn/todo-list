@@ -1,8 +1,8 @@
-import therapist from './stories/todos/saga';
+import todos from './stories/todos/saga';
 
 function * mySaga() {
     return yield [
-        ...therapist,
+        ...todos,
     ];
 }
 

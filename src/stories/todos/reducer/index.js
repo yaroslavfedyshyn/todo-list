@@ -1,14 +1,15 @@
 import defaultState from './defaultState';
 import {
-    FETCH_THERAPISTS_REQUESTED,
+    CREATE_NEW_TODO_REQUESTED,
 } from '../constants';
+import createNewTodoRequested from './createNewTodoRequested';
 
 export default (state = defaultState, action) => {
     const { type, payload } = action;
 
     switch (type) {
-        case FETCH_THERAPISTS_REQUESTED:
-            return fetchTherapistsRequested(state, payload);
+        case CREATE_NEW_TODO_REQUESTED:
+            return createNewTodoRequested(state, payload);
 
         default:
             return state;

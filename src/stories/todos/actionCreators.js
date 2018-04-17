@@ -1,7 +1,8 @@
 import {
-
+    CREATE_NEW_TODO_REQUESTED,
 } from './constants';
 
-export const createNewTodo = () => ({
-    type: '',
+export const createNewTodoRequested = (payload = {}) => ({
+    type: CREATE_NEW_TODO_REQUESTED,
+    payload,
 });
