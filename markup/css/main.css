@@ -28,3 +28,7 @@ header.header .header-text {
   font-size: 25px;
   font-weight: bold;
   color: #848688; }
+
+.new-todo,
+.list-container {
+  width: 100%; }

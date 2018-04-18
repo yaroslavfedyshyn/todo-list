@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CreateTodoContainer from './Create';
+import TodoListContainer from './List';
 
 @connect(
     (state) => ({
@@ -26,7 +27,7 @@ export default class Base extends Component {
                     </div>
                 </div>
                 <div className="row">
-
+                    <TodoListContainer />
                 </div>
             </div>
         );
