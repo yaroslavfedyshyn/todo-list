@@ -6,6 +6,7 @@ import {
     reduxForm,
     Field,
     getFormSyncErrors,
+    reset,
 } from 'redux-form';
 import autobind from 'autobind-decorator';
 import validate from '../form-validators/craete';
@@ -21,13 +22,15 @@ const syncErrorsSelector = getFormSyncErrors(formName);
 @reduxForm({
     form: formName,
     validate,
-    onSubmit: (values, dispatch) => {
-        return dispatch(createNewTodoRequested({
+    onSubmit: (values, dispatch, formState) => {
+        dispatch(createNewTodoRequested({
             item: {
                 ...values,
                 id: shortId.generate(),
             },
         }));
+
+        formState.reset();
     },
 })
 @connect(
@@ -66,13 +69,17 @@ export default class Create extends Component {
                 className="new-todo-container"
                 onSubmit={this.handleFormSubmit}
             >
-                <div className="">
-                    <Field
-                        name="summary"
-                        component={TextInput}
-                        placeholder="Task Summary"
-                    />
-                    <button type="submit">Submit</button>
+                <div className="row">
+                    <div className="col-md-10">
+                        <Field
+                            name="summary"
+                            component={TextInput}
+                            placeholder="Task Summary"
+                        />
+                    </div>
+                    <div className="col-md-2 submit-button-holder">
+                        <button type="submit" className="btn grey submit-button">Submit</button>
+                    </div>
                 </div>
                 <Field
                     name="details"

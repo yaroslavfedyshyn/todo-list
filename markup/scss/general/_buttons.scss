@@ -4,12 +4,12 @@
     size: 14px;
     weight: bold;
   }
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 
-  &.green {
-    background-color: $green-3;
+  &.grey {
+    background-color: $grey-1;
     color: $white-color;
   }
 

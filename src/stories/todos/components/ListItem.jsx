@@ -16,10 +16,10 @@ export default class ListItem extends Component {
         } = this.props;
 
         return (
-            <div className="media text-muted pt-3">
+            <div className="list-item media text-muted pt-3">
                 <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                     <div className="d-flex justify-content-between align-items-center w-100">
-                        <strong className="text-gray-dark">{item.summary}</strong>
+                        <strong className="list-item-summary text-gray-dark">{item.summary}</strong>
                         <div className="actions">
                             <span onClick={() => {
                                 deleteTodo({
@@ -27,12 +27,13 @@ export default class ListItem extends Component {
                                 });
                             }}>Delete</span>
                             {
-                                !item.done &&
-                                <span onClick={() => {
-                                    doneTodo({
-                                        itemId: item.id,
-                                    });
-                                }}>Done</span>
+                                item.done
+                                    ? <span className="label-done">✓</span>
+                                    : <span onClick={() => {
+                                        doneTodo({
+                                            itemId: item.id,
+                                        });
+                                    }}>Done</span>
                             }
                         </div>
                     </div>

@@ -62,9 +62,10 @@ export default class List extends Component {
             <div className="list-container">
                 <div className="my-3 p-3 bg-white rounded box-shadow">
                     <h6 className="border-bottom border-gray pb-2 mb-0">Tasks</h6>
-                    {this.renderItems()}
+                    <div className="list">{this.renderItems()}</div>
                     <small className="d-block text-right mt-3">
                         <span
+                            className="show-all"
                             onClick={() => {
                                 this.setState(prevState => ({
                                     showAll: !prevState.showAll,

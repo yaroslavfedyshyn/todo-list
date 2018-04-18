@@ -2,3 +2,51 @@
 .list-container {
   width: 100%;
 }
+
+.new-todo {
+  margin-top: 50px;
+
+  &-title {
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .submit-button-holder {
+    height: 68px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.list-container {
+  .show-all {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $blue-1;
+  }
+
+  .list {
+    max-height: 500px;
+    overflow: auto;
+
+    .list-item {
+      &-summary {
+        max-width: 80%;
+      }
+
+      .actions {
+        width: 75px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        margin-right: 25px;
+
+        .label-done {
+          color: $green-1;
+          cursor: default;
+        }
+      }
+    }
+  }
+}
