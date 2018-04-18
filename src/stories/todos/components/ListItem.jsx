@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class ListItems extends Component {
+export default class ListItem extends Component {
     constructor(props) {
         super(props);
 
@@ -10,7 +10,9 @@ export default class ListItems extends Component {
 
     render() {
         const {
-            item
+            item,
+            deleteTodo,
+            doneTodo,
         } = this.props;
 
         return (
@@ -19,8 +21,19 @@ export default class ListItems extends Component {
                     <div className="d-flex justify-content-between align-items-center w-100">
                         <strong className="text-gray-dark">{item.summary}</strong>
                         <div className="actions">
-                            <span>Delete</span>
-                            <span>Done</span>
+                            <span onClick={() => {
+                                deleteTodo({
+                                    itemId: item.id,
+                                });
+                            }}>Delete</span>
+                            {
+                                !item.done &&
+                                <span onClick={() => {
+                                    doneTodo({
+                                        itemId: item.id,
+                                    });
+                                }}>Done</span>
+                            }
                         </div>
                     </div>
                     <span className="d-block">{item.details}</span>
@@ -32,8 +45,10 @@ export default class ListItems extends Component {
 
 const propTypes = {
     item: PropTypes.object,
+    deleteTodo: PropTypes.func,
+    doneTodo: PropTypes.func,
 };
 const defaultProps = {};
 
-ListItems.propTypes = propTypes;
-ListItems.defaultProps = defaultProps;
+ListItem.propTypes = propTypes;
+ListItem.defaultProps = defaultProps;

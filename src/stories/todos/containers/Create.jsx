@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import shortId from 'shortid';
 import {
     reduxForm,
     Field,
@@ -22,7 +23,10 @@ const syncErrorsSelector = getFormSyncErrors(formName);
     validate,
     onSubmit: (values, dispatch) => {
         return dispatch(createNewTodoRequested({
-            item: values,
+            item: {
+                ...values,
+                id: shortId.generate(),
+            },
         }));
     },
 })
