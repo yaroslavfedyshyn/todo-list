@@ -5,18 +5,13 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const webpackConfig = require('../webpack.config.dev');
+const config = require('./config');
 
-const environments = {
-    NODE_ENV: process.env.NODE_ENV,
-    PROXY_URL: process.env.PROXY_URL || 'localhost:3000',
-    PORT: process.env.PORT || '4000',
-    PORT_UI: process.env.PORT_UI || '4001',
-};
 const bundler = webpack(webpackConfig);
 
 const app = express();
 
-switch (environments.NODE_ENV) {
+switch (config.NODE_ENV) {
     case 'development':
         app.use(historyApiFallback());
 
@@ -45,6 +40,6 @@ switch (environments.NODE_ENV) {
 }
 
 
-app.listen(environments.PORT, () => {
-    console.log(`Server ${environments.NODE_ENV} started at port ${environments.PORT}`);
+app.listen(config.PORT, () => {
+    console.log(`Server ${config.NODE_ENV} started at port ${config.PORT}`);
 });
